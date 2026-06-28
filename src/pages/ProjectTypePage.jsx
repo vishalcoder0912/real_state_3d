@@ -79,7 +79,7 @@ const ProjectTypePage = ({type}) => {
       <section className="section-y bg-white">
         <div className="container-pad grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <Reveal>
-            <SectionHeader align="left" eyebrow="Buyer benefits" title="Built for Clear Plot Decisions" text="Every buyer gets structured support instead of random property suggestions thrown around like confetti at a registry office." />
+            <SectionHeader align="left" eyebrow="Buyer benefits" title="Built for Clear Plot Decisions" text="Every buyer gets structured support, clear category comparison, documentation guidance, and practical next steps before moving forward." />
             <div className="mt-8 grid gap-4">
               {data.bullets.map((bullet) => (
                 <div key={bullet} className="flex items-center gap-3 rounded-[10px] bg-beige p-4 font-bold text-navy">
@@ -104,7 +104,7 @@ const ProjectTypePage = ({type}) => {
 
       <section className="section-y bg-mist">
         <div className="container-pad">
-          <SectionHeader eyebrow="Curated opportunities" title="Featured Options" text="Pricing is shared after requirement matching to avoid fake urgency and fake numbers, a rare mercy in real estate marketing." />
+          <SectionHeader eyebrow="Curated opportunities" title="Featured Options" text="Pricing is shared after requirement matching to keep the enquiry process accurate, responsible, and transparent." />
           <div className="mt-12 grid gap-6 lg:grid-cols-3">
             {visibleProperties.map((property, index) => (
               <Reveal key={property.title} delay={index * 0.05}>
