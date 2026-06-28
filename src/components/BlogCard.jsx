@@ -32,7 +32,7 @@ const BlogCard = ({post}) => {
         </div>
         <h3 className="font-display text-2xl font-bold text-navy">{post.title}</h3>
         <p className="mt-3 text-sm leading-7 text-muted">{post.summary}</p>
-        <Link to="/blog" className="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-gold transition hover:gap-3">
+        <Link to={`/blog/${post.slug}`} className="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-gold transition hover:gap-3">
           Read More
           <ArrowRight className="size-4" aria-hidden="true" />
         </Link>
