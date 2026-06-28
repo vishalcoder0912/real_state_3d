@@ -2,7 +2,7 @@ import {ArrowRight, CheckCircle2} from "lucide-react";
 import {motion} from "framer-motion";
 import {Link} from "react-router-dom";
 import ContactForm from "./ContactForm.jsx";
-import {images} from "../data/site.js";
+import HeroCityScene from "./HeroCityScene.jsx";
 import {trustBadges} from "../data/sections.js";
 
 const stagger = {
@@ -18,15 +18,7 @@ const childUp = {
 const HeroSection = () => {
   return (
     <section className="relative isolate overflow-hidden bg-navy text-white">
-      <motion.div
-        initial={{scale: 1}}
-        animate={{scale: 1.08}}
-        transition={{duration: 14, repeat: Infinity, repeatType: "reverse", ease: "easeInOut"}}
-        className="absolute inset-0 -z-10"
-      >
-        <img src={images.hero} alt="Modern city development and investment corridor" className="h-full w-full object-cover opacity-45" />
-      </motion.div>
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-navy via-navy/88 to-navy/30" />
+      <HeroCityScene />
       <div className="container-pad grid min-h-[760px] items-center gap-10 py-16 lg:grid-cols-[1.1fr_0.85fr]">
         <motion.div variants={stagger} initial="hidden" animate="visible" className="overflow-hidden">
           <motion.p variants={childUp} transition={{duration: 0.5}} className="mb-5 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-bold text-gold backdrop-blur">
@@ -36,15 +28,14 @@ const HeroSection = () => {
             Invest in the Future of Dholera Smart City
           </motion.h1>
           <motion.p variants={childUp} transition={{duration: 0.55}} className="mt-6 max-w-2xl text-lg leading-8 text-white/78">
-            Discover premium residential, industrial, and mixed-use plots with expert guidance, transparent
-            documentation, and long-term investment potential.
+            Explore premium residential, industrial, and mixed-use plot opportunities with transparent guidance, site visit support, and expert property consultation.
           </motion.p>
           <motion.div variants={childUp} transition={{duration: 0.5}} className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link to="/projects" className="btn-primary shimmer">
               Explore Projects
               <ArrowRight className="size-4" aria-hidden="true" />
             </Link>
-            <Link to="/contact-us" className="btn-secondary">
+            <Link to="/book-site-visit" className="btn-secondary">
               Book Free Consultation
             </Link>
           </motion.div>
