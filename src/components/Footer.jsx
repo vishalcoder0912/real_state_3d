@@ -1,10 +1,8 @@
 import {Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Send} from "lucide-react";
 import {motion} from "framer-motion";
 import {Link} from "react-router-dom";
-import {contact, navItems} from "../data/site.js";
+import {contact, footerCompanyLinks, propertyLinks} from "../data/site.js";
 import Logo from "./Logo.jsx";
-
-const propertyLinks = ["Residential Plots", "Industrial Plots", "Mixed Use", "Plot For Buy"];
 
 const fadeUp = {
   hidden: {opacity: 0, y: 24},
@@ -40,7 +38,7 @@ const Footer = () => {
         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{once: true}} transition={{duration: 0.5, delay: 0.08}}>
           <h2 className="text-sm font-extrabold uppercase tracking-[0.18em] text-gold">Our Company</h2>
           <div className="mt-5 grid gap-3">
-            {navItems.map((item) => (
+            {footerCompanyLinks.map((item) => (
               <Link key={item.path} to={item.path} className="text-sm text-white/70 transition hover:text-gold">
                 {item.label}
               </Link>
@@ -52,8 +50,8 @@ const Footer = () => {
           <h2 className="text-sm font-extrabold uppercase tracking-[0.18em] text-gold">Our Properties</h2>
           <div className="mt-5 grid gap-3">
             {propertyLinks.map((item) => (
-              <Link key={item} to="/projects" className="text-sm text-white/70 transition hover:text-gold">
-                {item}
+              <Link key={item.path} to={item.path} className="text-sm text-white/70 transition hover:text-gold">
+                {item.label}
               </Link>
             ))}
           </div>
@@ -95,7 +93,7 @@ const Footer = () => {
             whileHover={{scale: 1.04}}
             whileTap={{scale: 0.96}}
           >
-            WhatsApp CTA
+            WhatsApp Us
           </motion.a>
         </motion.div>
       </div>
