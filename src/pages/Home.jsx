@@ -11,7 +11,7 @@ import Reveal from "../components/Reveal.jsx";
 import SectionHeader from "../components/SectionHeader.jsx";
 import StatsSection from "../components/StatsSection.jsx";
 import TestimonialCard from "../components/TestimonialCard.jsx";
-import AnimatedSection, {fadeUp, staggerContainer} from "../components/AnimatedSection.jsx";
+import {fadeUp, staggerContainer} from "../components/AnimatedSection.jsx";
 import {blogs} from "../data/blogs.js";
 import {categories} from "../data/categories.js";
 import {properties} from "../data/properties.js";
