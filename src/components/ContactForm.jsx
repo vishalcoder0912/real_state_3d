@@ -1,4 +1,5 @@
 import {useState} from "react";
+import {motion} from "framer-motion";
 import {Send} from "lucide-react";
 
 const propertyTypes = ["Residential", "Industrial", "Mixed Use", "Investment"];
@@ -13,9 +14,13 @@ const ContactForm = ({compact = false}) => {
 
   if (submitted) {
     return (
-      <div className="rounded-[8px] border border-success/20 bg-success/10 p-6 text-success">
+      <motion.div
+        initial={{opacity: 0, scale: 0.95}}
+        animate={{opacity: 1, scale: 1}}
+        className="rounded-[8px] border border-success/20 bg-success/10 p-6 text-success"
+      >
         <p className="font-bold">Thank you. Our property consultant will contact you shortly.</p>
-      </div>
+      </motion.div>
     );
   }
 
@@ -26,13 +31,13 @@ const ContactForm = ({compact = false}) => {
           <label htmlFor="name" className="mb-2 block text-sm font-bold text-navy">
             Full Name
           </label>
-          <input id="name" required className="w-full rounded-[8px] border border-black/10 px-4 py-3 outline-none focus:border-gold" />
+          <input id="name" required className="w-full rounded-[8px] border border-black/10 px-4 py-3 outline-none transition focus:border-gold" />
         </div>
         <div>
           <label htmlFor="phone" className="mb-2 block text-sm font-bold text-navy">
             Phone Number
           </label>
-          <input id="phone" required className="w-full rounded-[8px] border border-black/10 px-4 py-3 outline-none focus:border-gold" />
+          <input id="phone" required className="w-full rounded-[8px] border border-black/10 px-4 py-3 outline-none transition focus:border-gold" />
         </div>
       </div>
 
@@ -42,13 +47,13 @@ const ContactForm = ({compact = false}) => {
             <label htmlFor="email" className="mb-2 block text-sm font-bold text-navy">
               Email Address
             </label>
-            <input id="email" type="email" className="w-full rounded-[8px] border border-black/10 px-4 py-3 outline-none focus:border-gold" />
+            <input id="email" type="email" className="w-full rounded-[8px] border border-black/10 px-4 py-3 outline-none transition focus:border-gold" />
           </div>
           <div>
             <label htmlFor="location" className="mb-2 block text-sm font-bold text-navy">
               Preferred Location
             </label>
-            <input id="location" className="w-full rounded-[8px] border border-black/10 px-4 py-3 outline-none focus:border-gold" />
+            <input id="location" className="w-full rounded-[8px] border border-black/10 px-4 py-3 outline-none transition focus:border-gold" />
           </div>
         </div>
       ) : null}
@@ -58,7 +63,7 @@ const ContactForm = ({compact = false}) => {
           <label htmlFor="propertyType" className="mb-2 block text-sm font-bold text-navy">
             Interested Property Type
           </label>
-          <select id="propertyType" className="w-full rounded-[8px] border border-black/10 px-4 py-3 outline-none focus:border-gold">
+          <select id="propertyType" className="w-full rounded-[8px] border border-black/10 px-4 py-3 outline-none transition focus:border-gold">
             {propertyTypes.map((type) => (
               <option key={type}>{type}</option>
             ))}
@@ -68,7 +73,7 @@ const ContactForm = ({compact = false}) => {
           <label htmlFor="budget" className="mb-2 block text-sm font-bold text-navy">
             Budget Range
           </label>
-          <input id="budget" className="w-full rounded-[8px] border border-black/10 px-4 py-3 outline-none focus:border-gold" />
+          <input id="budget" className="w-full rounded-[8px] border border-black/10 px-4 py-3 outline-none transition focus:border-gold" />
         </div>
       </div>
 
@@ -79,14 +84,15 @@ const ContactForm = ({compact = false}) => {
         <textarea
           id="message"
           rows={compact ? 3 : 4}
-          className="w-full resize-none rounded-[8px] border border-black/10 px-4 py-3 outline-none focus:border-gold"
+          className="w-full resize-none rounded-[8px] border border-black/10 px-4 py-3 outline-none transition focus:border-gold"
         />
       </div>
 
-      <button type="submit" className="btn-primary shimmer w-full">
+      <motion.button type="submit" className="btn-primary shimmer w-full" whileHover={{scale: 1.02}} whileTap={{scale: 0.97}}>
         <Send className="size-4" aria-hidden="true" />
         {compact ? "Get Property Details" : "Submit Enquiry"}
-      </button>
+      </motion.button>
+      <p className="text-xs text-muted">No spam. Only verified property guidance from our team.</p>
     </form>
   );
 };

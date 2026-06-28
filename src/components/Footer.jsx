@@ -1,15 +1,21 @@
 import {Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Send} from "lucide-react";
+import {motion} from "framer-motion";
 import {Link} from "react-router-dom";
 import {contact, navItems} from "../data/site.js";
 import Logo from "./Logo.jsx";
 
 const propertyLinks = ["Residential Plots", "Industrial Plots", "Mixed Use", "Plot For Buy"];
 
+const fadeUp = {
+  hidden: {opacity: 0, y: 24},
+  visible: {opacity: 1, y: 0},
+};
+
 const Footer = () => {
   return (
     <footer className="bg-navy pb-24 text-white md:pb-0">
       <div className="container-pad grid gap-10 py-14 lg:grid-cols-[1.4fr_0.8fr_0.8fr_1fr]">
-        <div>
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{once: true}} transition={{duration: 0.5}}>
           <Logo light />
           <p className="mt-5 max-w-sm text-sm leading-7 text-white/70">
             A trusted real estate company helping buyers and investors explore residential, industrial, and
@@ -29,9 +35,9 @@ const Footer = () => {
               {contact.footerAddress}
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div>
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{once: true}} transition={{duration: 0.5, delay: 0.08}}>
           <h2 className="text-sm font-extrabold uppercase tracking-[0.18em] text-gold">Our Company</h2>
           <div className="mt-5 grid gap-3">
             {navItems.map((item) => (
@@ -40,9 +46,9 @@ const Footer = () => {
               </Link>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        <div>
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{once: true}} transition={{duration: 0.5, delay: 0.16}}>
           <h2 className="text-sm font-extrabold uppercase tracking-[0.18em] text-gold">Our Properties</h2>
           <div className="mt-5 grid gap-3">
             {propertyLinks.map((item) => (
@@ -51,9 +57,9 @@ const Footer = () => {
               </Link>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        <div>
+        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{once: true}} transition={{duration: 0.5, delay: 0.24}}>
           <h2 className="text-sm font-extrabold uppercase tracking-[0.18em] text-gold">Subscribe & Follow</h2>
           <form className="mt-5 flex overflow-hidden rounded-full border border-white/15 bg-white/10">
             <label htmlFor="footerEmail" className="sr-only">
@@ -81,10 +87,17 @@ const Footer = () => {
               </a>
             ))}
           </div>
-          <a href={contact.whatsappHref} className="btn-primary mt-6 w-full" target="_blank" rel="noreferrer">
+          <motion.a
+            href={contact.whatsappHref}
+            className="btn-primary mt-6 w-full"
+            target="_blank"
+            rel="noreferrer"
+            whileHover={{scale: 1.04}}
+            whileTap={{scale: 0.96}}
+          >
             WhatsApp CTA
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
       </div>
       <div className="border-t border-white/10 py-5">
         <div className="container-pad flex flex-col gap-2 text-sm text-white/60 md:flex-row md:items-center md:justify-between">
