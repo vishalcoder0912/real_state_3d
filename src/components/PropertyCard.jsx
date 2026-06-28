@@ -1,11 +1,27 @@
 import {ArrowRight, CheckCircle2, MapPin} from "lucide-react";
+import {motion} from "framer-motion";
 import {Link} from "react-router-dom";
 
 const PropertyCard = ({property}) => {
   return (
-    <article className="premium-card image-zoom overflow-hidden">
+    <motion.article
+      variants={{
+        hidden: {opacity: 0, y: 36},
+        visible: {opacity: 1, y: 0},
+      }}
+      whileHover={{y: -10, scale: 1.015}}
+      transition={{duration: 0.25}}
+      className="overflow-hidden rounded-[8px] border border-black/5 bg-white shadow-soft transition-shadow duration-300 hover:shadow-premium"
+    >
       <div className="relative aspect-[16/11] overflow-hidden">
-        <img src={property.image} alt={property.title} className="h-full w-full object-cover" loading="lazy" />
+        <motion.img
+          src={property.image}
+          alt={property.title}
+          className="h-full w-full object-cover"
+          loading="lazy"
+          whileHover={{scale: 1.06}}
+          transition={{duration: 0.6}}
+        />
         <span className="absolute left-4 top-4 rounded-full bg-gold px-3 py-1 text-xs font-extrabold uppercase tracking-[0.12em] text-navy">
           {property.type}
         </span>
@@ -44,7 +60,7 @@ const PropertyCard = ({property}) => {
           </Link>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 };
 
