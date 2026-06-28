@@ -1,0 +1,17 @@
+export const routes = [
+  {label: "Home", path: "/"},
+  {label: "About Us", path: "/about-us"},
+  {label: "Mission & Vision", path: "/mission-vision"},
+  {label: "Director Message", path: "/director-message"},
+  {label: "Projects", path: "/projects"},
+  {label: "Residential Plots", path: "/projects/residential-plots"},
+  {label: "Industrial Plots", path: "/projects/industrial-plots"},
+  {label: "Mixed Use", path: "/projects/mixed-use"},
+  {label: "Plot For Buy", path: "/projects/plot-for-buy"},
+  {label: "News & Events", path: "/news-events"},
+  {label: "Blog", path: "/blog"},
+  {label: "Contact Us", path: "/contact-us"},
+  {label: "Book Site Visit", path: "/book-site-visit"},
+  {label: "Privacy Policy", path: "/privacy-policy"},
+  {label: "Thank You", path: "/thank-you"},
+];
