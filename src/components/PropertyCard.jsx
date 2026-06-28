@@ -1,32 +1,49 @@
 import {ArrowRight, CheckCircle2, MapPin} from "lucide-react";
+import {useState} from "react";
 import {motion} from "framer-motion";
 import {Link} from "react-router-dom";
 
 const PropertyCard = ({property}) => {
+  const [tilt, setTilt] = useState({rotateX: 0, rotateY: 0});
+
+  const handleMouseMove = (event) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    setTilt({
+      rotateX: ((y / rect.height) - 0.5) * -8,
+      rotateY: ((x / rect.width) - 0.5) * 8,
+    });
+  };
+
   return (
     <motion.article
       variants={{
         hidden: {opacity: 0, y: 36},
         visible: {opacity: 1, y: 0},
       }}
-      whileHover={{y: -10, scale: 1.015}}
+      animate={tilt}
+      whileHover={{y: -10, scale: 1.02}}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={() => setTilt({rotateX: 0, rotateY: 0})}
       transition={{duration: 0.25}}
-      className="overflow-hidden rounded-[8px] border border-black/5 bg-white shadow-soft transition-shadow duration-300 hover:shadow-premium"
+      className="group relative overflow-hidden rounded-[8px] border border-black/5 bg-white shadow-soft transition-shadow duration-300 [transform-style:preserve-3d] hover:shadow-premium"
     >
+      <span className="pointer-events-none absolute inset-0 z-10 translate-x-[-120%] bg-gradient-to-r from-transparent via-white/35 to-transparent transition duration-700 group-hover:translate-x-[120%]" />
       <div className="relative aspect-[16/11] overflow-hidden">
         <motion.img
           src={property.image}
           alt={property.title}
           className="h-full w-full object-cover"
           loading="lazy"
-          whileHover={{scale: 1.06}}
+          whileHover={{scale: 1.08}}
           transition={{duration: 0.6}}
         />
-        <span className="absolute left-4 top-4 rounded-full bg-gold px-3 py-1 text-xs font-extrabold uppercase tracking-[0.12em] text-navy">
+        <span className="absolute left-4 top-4 rounded-full bg-gold px-3 py-1 text-xs font-extrabold uppercase tracking-[0.12em] text-navy shadow-soft">
           {property.type}
         </span>
       </div>
-      <div className="p-6">
+      <div className="p-6 [transform:translateZ(22px)]">
         <h3 className="font-display text-2xl font-bold text-navy">{property.title}</h3>
         <p className="mt-3 flex items-center gap-2 text-sm font-semibold text-muted">
           <MapPin className="size-4 text-gold" aria-hidden="true" />
