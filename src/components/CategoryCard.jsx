@@ -1,11 +1,27 @@
 import {ArrowRight, CheckCircle2} from "lucide-react";
+import {motion} from "framer-motion";
 import {Link} from "react-router-dom";
 
 const CategoryCard = ({category}) => {
   return (
-    <article className="premium-card image-zoom overflow-hidden">
+    <motion.article
+      variants={{
+        hidden: {opacity: 0, y: 36},
+        visible: {opacity: 1, y: 0},
+      }}
+      whileHover={{y: -8, scale: 1.015}}
+      transition={{duration: 0.25}}
+      className="overflow-hidden rounded-[8px] border border-black/5 bg-white shadow-soft transition-shadow duration-300 hover:shadow-premium"
+    >
       <div className="aspect-[4/3] overflow-hidden">
-        <img src={category.image} alt={category.title} className="h-full w-full object-cover" loading="lazy" />
+        <motion.img
+          src={category.image}
+          alt={category.title}
+          className="h-full w-full object-cover"
+          loading="lazy"
+          whileHover={{scale: 1.06}}
+          transition={{duration: 0.6}}
+        />
       </div>
       <div className="p-6">
         <h3 className="font-display text-2xl font-bold text-navy">{category.title}</h3>
@@ -23,7 +39,7 @@ const CategoryCard = ({category}) => {
           <ArrowRight className="size-4" aria-hidden="true" />
         </Link>
       </div>
-    </article>
+    </motion.article>
   );
 };
 
