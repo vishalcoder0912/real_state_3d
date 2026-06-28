@@ -1,11 +1,19 @@
 import {Mail, Menu, Phone, X} from "lucide-react";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
+import {motion, AnimatePresence} from "framer-motion";
 import {contact, navItems} from "../data/site.js";
 import Logo from "./Logo.jsx";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, {passive: true});
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const linkClass = ({isActive}) =>
     `text-sm font-semibold transition hover:text-gold ${
@@ -13,7 +21,11 @@ const Navbar = () => {
     }`;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/5 bg-white/95 shadow-sm backdrop-blur">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-shadow duration-300 ${
+        scrolled ? "bg-white/95 shadow-premium backdrop-blur-md" : "bg-white/95 backdrop-blur"
+      }`}
+    >
       <div className="hidden bg-navy py-2 text-sm text-white lg:block">
         <div className="container-pad flex items-center justify-between">
           <div className="flex items-center gap-6">
@@ -62,32 +74,40 @@ const Navbar = () => {
         </button>
       </nav>
 
-      {open ? (
-        <div className="border-t border-black/5 bg-white xl:hidden">
-          <div className="container-pad grid gap-1 py-4">
-            {navItems.map((item) => (
-              <NavLink
-                key={item.path}
-                to={item.path}
-                className={({isActive}) =>
-                  `rounded-[8px] px-3 py-3 text-sm font-bold ${isActive ? "bg-beige text-navy" : "text-ink"}`
-                }
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </NavLink>
-            ))}
-            <div className="mt-3 grid grid-cols-2 gap-3">
-              <a href={contact.phoneHref} className="btn-outline py-2.5">
-                Call Now
-              </a>
-              <NavLink to="/contact-us" onClick={() => setOpen(false)} className="btn-primary py-2.5">
-                Enquire
-              </NavLink>
+      <AnimatePresence>
+        {open ? (
+          <motion.div
+            initial={{height: 0, opacity: 0}}
+            animate={{height: "auto", opacity: 1}}
+            exit={{height: 0, opacity: 0}}
+            transition={{duration: 0.25, ease: "easeInOut"}}
+            className="overflow-hidden border-t border-black/5 bg-white xl:hidden"
+          >
+            <div className="container-pad grid gap-1 py-4">
+              {navItems.map((item) => (
+                <NavLink
+                  key={item.path}
+                  to={item.path}
+                  className={({isActive}) =>
+                    `rounded-[8px] px-3 py-3 text-sm font-bold ${isActive ? "bg-beige text-navy" : "text-ink"}`
+                  }
+                  onClick={() => setOpen(false)}
+                >
+                  {item.label}
+                </NavLink>
+              ))}
+              <div className="mt-3 grid grid-cols-2 gap-3">
+                <a href={contact.phoneHref} className="btn-outline py-2.5">
+                  Call Now
+                </a>
+                <NavLink to="/contact-us" onClick={() => setOpen(false)} className="btn-primary py-2.5">
+                  Enquire
+                </NavLink>
+              </div>
             </div>
-          </div>
-        </div>
-      ) : null}
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </header>
   );
 };
