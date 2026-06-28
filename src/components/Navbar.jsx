@@ -8,7 +8,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   const linkClass = ({isActive}) =>
-    `text-sm font700 font-semibold transition hover:text-gold ${
+    `text-sm font-semibold transition hover:text-gold ${
       isActive ? "text-gold" : "text-ink"
     }`;
 
