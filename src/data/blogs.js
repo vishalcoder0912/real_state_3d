@@ -1,6 +1,7 @@
 export const blogs = [
   {
     title: "Dholera Smart City Investment Potential",
+    slug: "dholera-smart-city-investment-potential",
     category: "Dholera Insights",
     date: "Updated 2026",
     image:
@@ -10,6 +11,7 @@ export const blogs = [
   },
   {
     title: "Residential vs Industrial Plots: Which Is Right for You?",
+    slug: "residential-vs-industrial-plots",
     category: "Buyer Guide",
     date: "Updated 2026",
     image:
@@ -19,6 +21,7 @@ export const blogs = [
   },
   {
     title: "What Buyers Should Check Before Purchasing Land",
+    slug: "what-buyers-should-check-before-purchasing-land",
     category: "Due Diligence",
     date: "Updated 2026",
     image:
@@ -28,6 +31,7 @@ export const blogs = [
   },
   {
     title: "How Site Visits Help Investors Evaluate Plot Options",
+    slug: "how-site-visits-help-investors-evaluate-plot-options",
     category: "Site Visit",
     date: "Updated 2026",
     image:
