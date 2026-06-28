@@ -1,10 +1,11 @@
-import {ArrowRight, BadgeCheck, Building2, CheckCircle2, ClipboardCheck, FileCheck2, Handshake, Landmark, MapPinned, Route, ShieldCheck, Target, Telescope, TrendingUp, UserRoundCheck} from "lucide-react";
+import {ArrowRight, BadgeCheck, Building2, CheckCircle2, FileCheck2, Landmark, MapPinned, ShieldCheck, Target, Telescope, UserRoundCheck} from "lucide-react";
 import {Link} from "react-router-dom";
 import {motion} from "framer-motion";
 import BlogCard from "../components/BlogCard.jsx";
 import CategoryCard from "../components/CategoryCard.jsx";
 import CTASection from "../components/CTASection.jsx";
 import HeroSection from "../components/HeroSection.jsx";
+import PlotMap3D from "../components/PlotMap3D.jsx";
 import PropertyCard from "../components/PropertyCard.jsx";
 import Reveal from "../components/Reveal.jsx";
 import SectionHeader from "../components/SectionHeader.jsx";
@@ -58,7 +59,7 @@ const Home = () => {
               align="left"
               eyebrow="About Omana Projects"
               title="Building Trust Through Smart Real Estate Investments"
-              text="OMANA PROJECTS helps buyers and investors explore high-potential real estate opportunities with a focus on Dholera and emerging growth corridors. From residential plots to industrial and mixed-use land options, we provide guidance, documentation support, and transparent property consultation."
+              text="OMANA PROJECTS was established in 2024 with a focus on strategic industrial land solutions in the Dholera Special Investment Region, India’s first smart city and greenfield industrial hub. We help buyers compare residential plots, industrial plots, and mixed-use opportunities with practical guidance."
             />
             <Link to="/about-us" className="btn-primary mt-8">
               Learn More About Us
@@ -110,6 +111,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <PlotMap3D />
 
       <section className="section-y bg-white">
         <div className="container-pad">
@@ -216,7 +219,7 @@ const Home = () => {
             ))}
           </motion.div>
           <div className="mt-10 text-center">
-            <Link to="/contact-us" className="btn-primary shimmer">
+            <Link to="/book-site-visit" className="btn-primary shimmer">
               Start Your Journey
             </Link>
           </div>
@@ -240,8 +243,8 @@ const Home = () => {
             ))}
           </div>
           <div className="mt-10 text-center">
-            <Link to="/contact-us" className="btn-primary shimmer">
-              Start Your Journey
+            <Link to="/book-site-visit" className="btn-primary shimmer">
+              Book Site Visit
             </Link>
           </div>
         </div>
@@ -254,8 +257,7 @@ const Home = () => {
               <Target className="size-10 text-gold" aria-hidden="true" />
               <h2 className="mt-5 font-display text-3xl font-bold text-navy">Our Mission</h2>
               <p className="mt-4 leading-8 text-muted">
-                To simplify real estate investment by offering transparent, reliable, and opportunity-driven
-                property guidance.
+                To simplify real estate investment by offering transparent, reliable, and opportunity-driven property guidance.
               </p>
             </motion.article>
           </Reveal>
@@ -264,8 +266,7 @@ const Home = () => {
               <Telescope className="size-10 text-gold" aria-hidden="true" />
               <h2 className="mt-5 font-display text-3xl font-bold text-navy">Our Vision</h2>
               <p className="mt-4 leading-8 text-muted">
-                To become a trusted real estate partner for buyers and investors exploring India's emerging property
-                growth destinations.
+                To become a trusted real estate partner for buyers and investors exploring India's emerging property growth destinations.
               </p>
               <Link to="/mission-vision" className="mt-6 inline-flex items-center gap-2 text-sm font-extrabold text-gold">
                 Read Full Mission & Vision
