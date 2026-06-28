@@ -20,6 +20,19 @@ export const navItems = [
   {label: "Contact Us", path: "/contact-us"},
 ];
 
+export const footerCompanyLinks = [
+  ...navItems,
+  {label: "Book Site Visit", path: "/book-site-visit"},
+  {label: "Privacy Policy", path: "/privacy-policy"},
+];
+
+export const propertyLinks = [
+  {label: "Residential Plots", path: "/projects/residential-plots"},
+  {label: "Industrial Plots", path: "/projects/industrial-plots"},
+  {label: "Mixed Use", path: "/projects/mixed-use"},
+  {label: "Plot For Buy", path: "/projects/plot-for-buy"},
+];
+
 export const images = {
   hero:
     "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=82",
