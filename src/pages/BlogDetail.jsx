@@ -19,7 +19,7 @@ const BlogDetail = () => {
             <CalendarDays className="size-4" aria-hidden="true" /> {post.category || "Dholera insight"}
           </p>
           <h1 className="font-display text-5xl font-extrabold leading-tight">{post.title}</h1>
-          <p className="mt-6 text-lg leading-8 text-white/75">{post.excerpt}</p>
+          <p className="mt-6 text-lg leading-8 text-white/75">{post.summary}</p>
         </div>
       </section>
 
